@@ -30,7 +30,7 @@ public class DefaultLogProcessor implements LogProcessor {
 
     @Override
     public void start(String[] args) {
-        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
         InputUserData inputUserData = inputUserParser.parse(args);
         stopwatch.start();
 
