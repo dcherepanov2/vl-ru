@@ -1,0 +1,3 @@
+lineProcessor:
+  bufferSize: 10
+  workerThread: 1
