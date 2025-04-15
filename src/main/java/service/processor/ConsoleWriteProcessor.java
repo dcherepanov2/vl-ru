@@ -1,6 +1,5 @@
 package service.processor;
 
-import domain.DowntimeResult;
 import domain.LogBatchProcessData;
 import lombok.extern.log4j.Log4j2;
 import service.definer.DefaultDownTimeNotAllowedDefiner;
@@ -33,15 +32,11 @@ public class ConsoleWriteProcessor implements Runnable {
             while (!Thread.currentThread().isInterrupted()) {
                 LogBatchProcessData logBatchProcessData = logBatchStatisticsQueue.take();
                 downTimeNotAllowedDefiner.define(logBatchProcessData, allowedAvailabilityLevel)
-                        .ifPresent(this::log);
+                        .ifPresent(log::info);
             }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            log.error("InputWriteProcessor was interrupted", e);
+            throw new IllegalStateException(e);
         }
-    }
-
-    private void log(DowntimeResult downtimeResult){
-        System.out.println(downtimeResult);
     }
 }
