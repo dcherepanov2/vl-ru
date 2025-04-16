@@ -23,8 +23,7 @@ public class DowntimeAvailabilityCalculationTest extends AbstractDowntimeAnalyze
         List<String> strings = readDowntimeFromConsole(process, 1, TIME_OUT);
         DowntimeResult actualDownTime = extractDownTimeConsoleLog(strings.getFirst());
 
-        assertEquals(expectedAvailability, actualDownTime.realAvailabilityLevel(), 0.001,
-                "Calculated availability is incorrect");
+        assertEquals(expectedAvailability, actualDownTime.realAvailabilityLevel(), "Calculated availability is incorrect");
     }
 
     @Test
@@ -39,8 +38,7 @@ public class DowntimeAvailabilityCalculationTest extends AbstractDowntimeAnalyze
         List<String> strings = readDowntimeFromConsole(process, 1, TIME_OUT);
         DowntimeResult actualDownTime = extractDownTimeConsoleLog(strings.getFirst());
 
-        assertEquals(expectedAvailability, actualDownTime.realAvailabilityLevel(), 0.001,
-                "Availability should be 0 when all requests fail");
+        assertEquals(expectedAvailability, actualDownTime.realAvailabilityLevel(), "Availability should be 0 when all requests fail");
     }
 
     @Test
