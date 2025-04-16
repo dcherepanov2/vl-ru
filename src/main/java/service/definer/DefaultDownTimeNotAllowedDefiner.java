@@ -18,8 +18,10 @@ public class DefaultDownTimeNotAllowedDefiner implements DownTimeNotAllowedDefin
     public Optional<DowntimeResult> define(LogBatchProcessData logBatchStatistic, double allowAvailabilityLevel) {
         double realAvailabilityLevel = calculateBatchAvailabilityLevel(logBatchStatistic);
         return Optional.of(logBatchStatistic)
-                .filter(logBatchStatisticLocal -> isNotAllowedAvailabilityLevel(logBatchStatisticLocal, allowAvailabilityLevel))
-                .map(logBatchStatisticLocal -> downTimeResultMapper.toDownTimeResult(logBatchStatisticLocal, realAvailabilityLevel));
+                .filter(logBatchStatisticLocal ->
+                        isNotAllowedAvailabilityLevel(logBatchStatisticLocal, allowAvailabilityLevel))
+                .map(logBatchStatisticLocal ->
+                        downTimeResultMapper.toDownTimeResult(logBatchStatisticLocal, realAvailabilityLevel));
     }
 
     private boolean isNotAllowedAvailabilityLevel(LogBatchProcessData logBatchProcessData, double allowedAvailabilityLevel) {

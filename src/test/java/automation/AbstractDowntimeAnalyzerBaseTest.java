@@ -122,5 +122,6 @@ public abstract class AbstractDowntimeAnalyzerBaseTest {
     @AfterEach
     void cleanUp() throws IOException {
         Files.deleteIfExists(Paths.get(LOG_FILE_PATH));
+        process.destroy();
     }
 }

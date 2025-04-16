@@ -23,7 +23,7 @@ public class LogBatchProcessData implements Cloneable {
     }
 
     public boolean isBufferCanBeCleared(int bufferSize) {
-        return buffer.size() >= bufferSize;
+        return countLines >= bufferSize;
     }
 
     public void incrementCountLines() {

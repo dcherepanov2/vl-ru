@@ -22,7 +22,7 @@ public class PropertiesConfig {
         try (InputStream input = PropertiesConfig.class.getResourceAsStream("/application.yaml")) {
             return yaml.load(input);
         } catch (Exception e) {
-            throw new RuntimeException("Failed to load config", e);
+            throw new IllegalStateException("Failed to load config", e);
         }
     }
 }

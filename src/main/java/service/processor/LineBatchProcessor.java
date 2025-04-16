@@ -64,7 +64,6 @@ public class LineBatchProcessor implements Runnable {
             logBatchProcessData.updateTime(logFailureResult.logTime());
 
             if (isFlush()) {
-                logBatchProcessData.incrementCountLines();
                 logBatchProcessDataQueue.add(logBatchProcessData.clone());
                 logBatchProcessData.clear();
                 timeWatcher.reset();

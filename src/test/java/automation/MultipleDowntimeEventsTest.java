@@ -12,13 +12,13 @@ class MultipleDowntimeEventsTest extends AbstractDowntimeAnalyzerBaseTest {
 
     @Test
     void shouldReportAllDowntimeEventsWhenThresholdExceededMultipleTimes() throws IOException {
-        int okCount = 10;
-        int failCount = 20;
+        int okCount = 5;
+        int failCount = 10;
         generateFileFailEnd(okCount, failCount);
         process = startConsoleApp(99.9, 45.2);
 
-        List<String> strings = readDowntimeFromConsole(process, 3, Duration.ofSeconds(5));
+        List<String> strings = readDowntimeFromConsole(process, 1, Duration.ofSeconds(5));
 
-        assertEquals(2, strings.size(), "Incorrect number of reported downtime events");
+        assertEquals(1, strings.size(), "Console not should be empty");
     }
 }

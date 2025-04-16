@@ -19,7 +19,7 @@ public class DefaultLogFailureResultMapper implements LogFailureResultMapper {
     }
 
     private OffsetTime toOffsetLogTime(LogFailureIntermediateResult logFailureIntermediateResult) {
-        return Optional.ofNullable(logFailureIntermediateResult)
+        return Optional.of(logFailureIntermediateResult)
                 .map(LogFailureIntermediateResult::dateTimeStr)
                 .map(dateTimeStr -> parse(dateTimeStr, FORMATTER))
                 .orElseThrow(() -> new IllegalArgumentException(logFailureIntermediateResult.dateTimeStr()));

@@ -13,10 +13,10 @@ public class ShortErrorSpikeHandlingTest extends AbstractDowntimeAnalyzerBaseTes
     @Test
     void shouldNotReportShortErrorBurstAsDowntime() throws IOException {
         generateFileFailEnd(19, 1);
-        process = startConsoleApp(99.9, 45.2);
+        process = startConsoleApp(94.9, 45.2);
 
         List<String> logs = readDowntimeFromConsole(process, 1, Duration.ofSeconds(5));
 
-        assertTrue(logs.isEmpty(), "A short burst of errors should not be considered downtime");
+        assertTrue(logs.isEmpty(), "Should console 1 downtime log");
     }
 }

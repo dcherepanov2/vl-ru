@@ -18,6 +18,6 @@ class ErrorRateThresholdTest extends AbstractDowntimeAnalyzerBaseTest {
 
         List<String> strings = readDowntimeFromConsole(process, 2, Duration.ofSeconds(5));
 
-        assertEquals(0, strings.size(), "Should not report downtime when error rate is low");
+        assertEquals(0, strings.size(), "Console should be empty");
     }
 }

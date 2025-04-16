@@ -21,6 +21,6 @@ public class DefaultLogFailureIntermediateParser implements LogFailureIntermedia
             return new LogFailureIntermediateResult(dateTimeStr, responseStatus, executionTime);
         }
 
-        throw new IllegalStateException("Log file contains string not allowed format.");
+        throw new IllegalArgumentException("Log file contains string not allowed format.");
     }
 }
